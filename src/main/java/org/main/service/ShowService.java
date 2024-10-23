@@ -36,7 +36,7 @@ public class ShowService {
     }
 
     private boolean isValidTimeRange(Long startTime, Long endTime) {
-        return true;
+        return endTime - startTime == 1;
     }
 
     private boolean isValidTimeSlot(List<OnBoardedSlot> onBoardedSlots, String timeRange) {

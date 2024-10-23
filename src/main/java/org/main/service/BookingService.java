@@ -81,4 +81,13 @@ public class BookingService {
             bookingIdTobookedTicketMap.put(bookingId, showTicket);
         }
     }
+
+    public void printQueuedTickets() {
+        System.out.println("Printing queued tickets if found any");
+        for (Queue<ShowTicket> queuedTickets : queuedTicketsMap.values()) {
+            for (ShowTicket showTicket : queuedTickets) {
+                System.out.println(showTicket.getShowName() + " : " + showTicket.getBookingId());
+            }
+        }
+    }
 }

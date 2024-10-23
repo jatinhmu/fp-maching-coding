@@ -46,4 +46,12 @@ public class ShowTicket {
     public void setSeats(int seats) {
         this.seats = seats;
     }
+
+    public Long getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(Long bookingId) {
+        this.bookingId = bookingId;
+    }
 }
