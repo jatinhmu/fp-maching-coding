@@ -12,4 +12,36 @@ public class OnBoardedSlot {
         this.endTime = endTime;
         this.capacity = capacity;
     }
+
+    public String getShowName() {
+        return showName;
+    }
+
+    public void setShowName(String showName) {
+        this.showName = showName;
+    }
+
+    public Long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Long startTime) {
+        this.startTime = startTime;
+    }
+
+    public Long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Long endTime) {
+        this.endTime = endTime;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 }

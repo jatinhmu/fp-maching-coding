@@ -21,7 +21,18 @@ public class ShowService {
     }
 
     public void onboardSlot(String showName, Long startTime, Long endTime, int cap) {
+        if (!isValidTimeRange(startTime, endTime)){
+            System.out.println("Sorry, show timings are of 1 hour only");
+            return;
+        }
         List<OnBoardedSlot> onBoardedSlots = onboardedSlotsMap.get(showName);
+        if (onBoardedSlots == null) {
+            onBoardedSlots = new ArrayList<>();
+        }
+        OnBoardedSlot onBoardedSlot = new OnBoardedSlot(showName, startTime, endTime, cap);
+        onBoardedSlots.add(onBoardedSlot);
+        onboardedSlotsMap.put(showName, onBoardedSlots);
+        System.out.println("Done!");
     }
 
     private boolean isValidTimeRange(Long startTime, Long endTime) {
@@ -39,6 +50,15 @@ public class ShowService {
             List<OnBoardedSlot> s = onboardedSlotsMap.get(show.getShowName());
             availableShowsByGenre.addAll(s);
         }
-        System.out.println(genre + "  available shows by " + availableShowsByGenre);
+
+        for (OnBoardedSlot onBoardedSlot : availableShowsByGenre) {
+            if(onBoardedSlot.getCapacity()>0)
+                System.out.println(onBoardedSlot.getShowName() + ":" + onBoardedSlot.getStartTime() + ":" + onBoardedSlot.getEndTime() + " " + onBoardedSlot.getCapacity());
+        }
+
+    }
+
+    public List<OnBoardedSlot> getOnBoardedSlots(String showName) {
+        return onboardedSlotsMap.get(showName);
     }
 }
