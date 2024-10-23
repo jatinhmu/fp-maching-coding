@@ -29,7 +29,7 @@ public class Main {
 
         bookingService.bookTicket("UserA", "TMKOC", 12L, 2);
 
-        bookingService.cancelBooking(100L);
+        bookingService.cancelBooking(100L) ;
 
     }
 }
